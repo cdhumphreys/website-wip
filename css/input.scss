@@ -1,0 +1,216 @@
+
+$light-blue: #00a7e1;
+$navy: #00171f;
+$dark-blue: #003459;
+$bronze: #FF8800;
+$transp-grey: rgba(200,200,200,0.8);
+$nav-hex-size: 100px;
+$port-hex-size: 200px;
+
+$images-path: '../../img/';
+
+@mixin hexagon-clip() {
+	-webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+	clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+@mixin newHex(){
+	float: left;
+	border-right: 30px solid #6C6;
+	border-top: 52px solid transparent;
+	border-bottom: 52px solid transparent;
+
+	float: left;
+	width: 60px;
+	height: 104px;
+	background-color: #6C6;
+
+	float: left;
+	border-left: 30px solid #6C6;
+	border-top: 52px solid transparent;
+	border-bottom: 52px solid transparent;
+}
+
+html {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto Condensed', sans-serif;
+	background-color: rgba(0,0,0,0.9);
+	color: #ddd
+}
+nav {
+
+	ul {
+		margin: 20px auto;
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+	}
+
+	li {
+		display: inline-block;
+	    background-color: black;
+	    
+	    width: $nav-hex-size;
+	    height: $nav-hex-size;
+	    // border: 2px $bronze solid;
+	    line-height: $nav-hex-size;
+	    a {
+	    	text-decoration: none;
+	    	color: $bronze;
+	    }
+	    a:hover, a:active {
+	    	color: $light-blue;
+	    }
+	    
+	}
+}
+
+p {
+	margin: 10px;
+}
+
+.hexNav {
+	
+	@include hexagon-clip();
+	position: relative;	
+
+}
+.bigHexNav {
+	@include hexagon-clip();
+
+	position: relative;
+	background-color: $bronze;
+	width: $nav-hex-size + 10px;
+	height: $nav-hex-size + 10px;
+	
+	// display: inline-block;
+	line-height: $nav-hex-size + 10px;
+
+
+
+}
+.bigHexNav:hover, .bigHexNav:active {
+	background-color: $light-blue;
+}
+.hexPort {
+	@include hexagon-clip();
+	position: relative;
+	overflow: hidden;
+	
+}
+.bigHexPort {
+	@include hexagon-clip();
+	position: relative;
+	background-color: #00EF0F;
+	width: $port-hex-size + 10px;
+	height: $port-hex-size + 10px;
+	// display: inline-block;
+	line-height: $port-hex-size + 10px;
+	transform: rotate(90deg);
+	overflow: hidden;
+}
+.carousel-item {
+	position: relative;
+	text-align: center;
+}
+#introSplash {
+	padding: 10px;
+	height: 100vh;
+	background-color: #000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background-image: url('#{$images-path}header_img.jpg');
+	background-size: cover;
+
+}
+
+#textSplash {
+	@include hexagon-clip();
+	background-color: $transp-grey;
+	padding: 2.5%;
+	text-align: center;
+	height: 250px;
+	width: 250px;
+
+}
+
+#name {
+	margin-top: 50px;
+}
+
+#introduction {
+	// background-color: $transp-grey;
+	margin: 20px 10px;
+	color: $bronze;
+	text-align: center;
+}
+
+#portfolio {
+	ul {
+		margin: 10% auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+	}
+
+	li {
+		display: inline-block;
+	    background-color: black;
+	    width: $port-hex-size;
+	    height: $port-hex-size;
+	    line-height: $port-hex-size;
+	    text-align: center;
+	    margin-left: 5px;
+	    margin-top: 5px;
+	    overflow: hidden;
+	   
+	}
+
+	img {
+		width: 200px;
+		height: 200px;
+		transform: rotate(-90deg);
+		transition: all 1s ease-in-out;
+	}
+
+	img:hover {
+		transform: scale(1.5) rotate(-90deg);
+
+
+	}
+}
+// hexagon made with 3 divs
+#exp-hex {
+	.top-hex {
+			float: left;
+border-right: 30px solid #6C6;
+border-top: 52px solid transparent;
+border-bottom: 52px solid transparent;
+	}
+
+.mid-hex {
+	float: left;
+	width: 60px;
+	height: 104px;
+	background-color: #6C6;
+}
+
+.bot-hex {
+	float: left;
+	border-left: 30px solid #6C6;
+	border-top: 52px solid transparent;
+	border-bottom: 52px solid transparent;
+}
+
+
+}
